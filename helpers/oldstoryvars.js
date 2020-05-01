@@ -12,7 +12,7 @@ const MainShip = {
     fullName: "First-Mate (Now Captain) Krystal Powlowski of the Swarm Cruiser South Ramonfurt"
   },
   navigator: {
-    title: "Nav-Officer",
+    title: "Nav-Officer (Now First Officer)",
     firstName: "Viviane",
     lastName: "Streich",
     fullName: "Nav-Officer Viviane Streich of the Swarm Cruiser South Ramonfurt"
@@ -63,7 +63,7 @@ const EvilGod = {
   title: "Lord",
   name: "Yhybbih",
   domain: "Thyndis",
-  fullname: "Lord Yhybbih of Thyndis the Embracing"
+  fullName: "Lord Yhybbih of Thyndis the Embracing"
 }
 
 export default { MainShip, AwayShip, EvilGod }
