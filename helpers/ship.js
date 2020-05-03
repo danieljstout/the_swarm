@@ -3,7 +3,7 @@ import { DIRECTION_NAMES, SHIP_TYPES } from './arrays';
 
 const shipType = () => faker.random.arrayElement(SHIP_TYPES);
 
-const ShipName = () => `Swarm ${shipType()} ${faker.random.arrayElement(DIRECTION_NAMES)}${faker.random.arrayElement([faker.address.county(), faker.address.state(), faker.address.country()])}`;
+const ShipName = (shiptype) => `Swarm ${shiptype} ${faker.random.arrayElement(DIRECTION_NAMES)}${faker.random.arrayElement([faker.address.county(), faker.address.state(), faker.address.country()])}`;
 
 const Captain = () => ({
   title: "Captain",
@@ -31,33 +31,42 @@ const idOfficer = () => ({
 });
 
 
-const Ship = (captain, firstOfficer, shipName, cargoMaster, idOfficer) => ({
-  captain: {
-    title: captain.title,
-    firstName: captain.firstName,
-    lastName: captain.lastName,
-    fullName: `${captain.title} ${captain.firstName} ${captain.lastName} of the ${shipName}`
-  },
-  firstOfficer: {
-    title: firstOfficer.title,
-    firstName: firstOfficer.firstName,
-    lastName: firstOfficer.lastName,
-    fullName: `${firstOfficer.title} ${firstOfficer.firstName} ${firstOfficer.lastName} of the ${shipName}`
-  },
-  cargoMaster: {
-      title: cargoMaster.title,
-      firstName: cargoMaster.firstName,
-      lastName: cargoMaster.lastName,
-      fullName: `${cargoMaster.title} ${cargoMaster.firstName} ${cargoMaster.lastName} of the ${shipName}`
-  },
-  idOfficer: {
-      title: idOfficer.title,
-      firstName: idOfficer.firstName,
-      lastName: idOfficer.lastName,
-      fullName: `${idOfficer.title}: ${idOfficer.lastName}`
-  },
-  name: shipName
-});
+const Ship = () => {
+  let shiptype = shipType();
+  let shipname = ShipName(shiptype);
+  let captain = Captain();
+  let firstofficer = FirstOfficer();
+  let cargomaster = cargoMaster();
+  let idofficer = idOfficer();
+  return ({
+    captain: {
+      title: captain.title,
+      firstName: captain.firstName,
+      lastName: captain.lastName,
+      fullName: `${captain.title} ${captain.firstName} ${captain.lastName} of the ${shipname}`
+    },
+    firstOfficer: {
+      title: firstofficer.title,
+      firstName: firstofficer.firstName,
+      lastName: firstofficer.lastName,
+      fullName: `${firstofficer.title} ${firstofficer.firstName} ${firstofficer.lastName} of the ${shipname}`
+    },
+    cargoMaster: {
+        title: cargomaster.title,
+        firstName: cargomaster.firstName,
+        lastName: cargomaster.lastName,
+        fullName: `${cargomaster.title} ${cargomaster.firstName} ${cargomaster.lastName} of the ${shipname}`
+    },
+    idOfficer: {
+        title: idofficer.title,
+        firstName: idofficer.firstName,
+        lastName: idofficer.lastName,
+        fullName: `${idofficer.title}: ${idofficer.lastName}`
+    },
+    name: shipname,
+    type: shiptype
+  });
+};
 
 export default {
   ShipName,
@@ -65,5 +74,6 @@ export default {
   FirstOfficer,
   Ship,
   cargoMaster,
-  idOfficer
+  idOfficer,
+  shipType
 };
