@@ -1,2 +1,0 @@
-export const DIRECTION_NAMES = ["North ", "East ", "South ", "West ", "Northeast ", "Northwest ", "Southeast ", "Southwest ", "East-Northeast ", "North-Northeast ", "West-Northwest ", "North-Northwest ", "East-Southeast ", "South-Southeast ", "West-Southwest ", "South-Southwest ", ""];
-export const SHIP_TYPES = ["Carrier", "Brig", "Battlecruiser", "Battleship", "Clipper", "Destroyer", "Cruiser", "Dreadnought", "Barge", "Frigate", "Galleon"];
