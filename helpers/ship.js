@@ -1,7 +1,9 @@
 import * as faker from 'faker';
-import { DIRECTION_NAMES, SHIP_TYPES } from './arrays'
+import { DIRECTION_NAMES, SHIP_TYPES } from './arrays';
 
-const ShipName = () => `Swarm ${faker.random.arrayElement(SHIP_TYPES)} ${faker.random.arrayElement(DIRECTION_NAMES)}${faker.random.arrayElement([faker.address.county(), faker.address.state(), faker.address.country()])}`;
+const shipType = () => faker.random.arrayElement(SHIP_TYPES);
+
+const ShipName = () => `Swarm ${shipType()} ${faker.random.arrayElement(DIRECTION_NAMES)}${faker.random.arrayElement([faker.address.county(), faker.address.state(), faker.address.country()])}`;
 
 const Captain = () => ({
   title: "Captain",
@@ -16,7 +18,20 @@ const FirstOfficer = () => ({
   lastName: faker.name.lastName()
 });
 
-const Ship = (captain, firstOfficer, shipName) => ({
+const cargoMaster = () => ({
+  title: "Cargomaster",
+  firstName: faker.name.firstName(),
+  lastName: faker.name.lastName()
+});
+
+const idOfficer = () => ({
+  title: "Security Identification Officer",
+  firstName: faker.name.firstName(),
+  lastName: faker.name.lastName()
+});
+
+
+const Ship = (captain, firstOfficer, shipName, cargoMaster, idOfficer) => ({
   captain: {
     title: captain.title,
     firstName: captain.firstName,
@@ -29,6 +44,18 @@ const Ship = (captain, firstOfficer, shipName) => ({
     lastName: firstOfficer.lastName,
     fullName: `${firstOfficer.title} ${firstOfficer.firstName} ${firstOfficer.lastName} of the ${shipName}`
   },
+  cargoMaster: {
+      title: cargoMaster.title,
+      firstName: cargoMaster.firstName,
+      lastName: cargoMaster.lastName,
+      fullName: `${cargoMaster.title} ${cargoMaster.firstName} ${cargoMaster.lastName} of the ${shipName}`
+  },
+  idOfficer: {
+      title: idOfficer.title,
+      firstName: idOfficer.firstName,
+      lastName: idOfficer.lastName,
+      fullName: `${idOfficer.title}: ${idOfficer.lastName}`
+  },
   name: shipName
 });
 
@@ -36,5 +63,7 @@ export default {
   ShipName,
   Captain,
   FirstOfficer,
-  Ship
+  Ship,
+  cargoMaster,
+  idOfficer
 };
