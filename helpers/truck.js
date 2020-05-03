@@ -7,12 +7,12 @@ String.prototype.titleize = function() {
 
 const Truck = () => ({
   pilot: {
-    firstName: faker.name.firstName(),
+    firstName: faker.name.firstName('Woman'),
     lastName: faker.name.lastName(),
     handle: `${faker.random.arrayElement(["lil", "big"])} ${faker.hacker.noun()}`.titleize()
   },
   assistant: {
-    name: faker.name.firstName(),
+    name: faker.name.firstName('Man'),
     type: "HVA",
     longFormType: "Holographic Victorian Assistant"
   },

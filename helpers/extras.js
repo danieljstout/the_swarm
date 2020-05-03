@@ -10,7 +10,7 @@ const storageRetId = () => ({
 
 const criminal = () => ({
 	wanted: `${converter.toWords(faker.random.number(100))} swarm vessels`,
-	firstName: faker.name.firstName(),
+	firstName: faker.name.firstName('Man'),
   lastName: faker.name.lastName(),
 });
 
